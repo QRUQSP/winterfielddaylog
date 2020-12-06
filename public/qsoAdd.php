@@ -44,7 +44,7 @@ function qruqsp_winterfielddaylog_qsoAdd(&$ciniki) {
     }
 
     $args['class'] = trim(strtoupper($args['class']));
-    if( !preg_match("/^[0-9]+[A-F]$/", $args['class']) ) {
+    if( !preg_match("/^[0-9]+[IOH]$/", $args['class']) ) {
         return array('stat'=>'warn', 'err'=>array('code'=>'qruqsp.winterfielddaylog.23', 'msg'=>'Invalid class, must be in the format NumberLetter, EG: 1D, 4E'));
     }
 
