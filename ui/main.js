@@ -20,7 +20,7 @@ function qruqsp_winterfielddaylog_main() {
     //
     // The panel to list the qso
     //
-    this.menu = new M.panel('Field Day Logger', 'qruqsp_winterfielddaylog_main', 'menu', 'mc', 'xlarge narrowaside', 'sectioned', 'qruqsp.fielddaylog.main.menu');
+    this.menu = new M.panel('Field Day Logger', 'qruqsp_winterfielddaylog_main', 'menu', 'mc', 'xlarge narrowaside', 'sectioned', 'qruqsp.winterfielddaylog.main.menu');
     this.menu.data = {};
     this.menu.nplist = [];
     this.menu.uisize = 'normal';
@@ -561,7 +561,7 @@ function qruqsp_winterfielddaylog_main() {
     //
     // The panel to list all the qso
     //
-    this.qsos = new M.panel('Contact', 'qruqsp_winterfielddaylog_main', 'qsos', 'mc', 'large', 'sectioned', 'qruqsp.fielddaylog.main.qsos');
+    this.qsos = new M.panel('Contact', 'qruqsp_winterfielddaylog_main', 'qsos', 'mc', 'large', 'sectioned', 'qruqsp.winterfielddaylog.main.qsos');
     this.qsos.data = {};
     this.qsos.nplist = [];
     this.qsos.sections = {
@@ -645,7 +645,7 @@ function qruqsp_winterfielddaylog_main() {
     //
     // The panel to edit QSO
     //
-    this.qso = new M.panel('Contact', 'qruqsp_winterfielddaylog_main', 'qso', 'mc', 'medium', 'sectioned', 'qruqsp.fielddaylog.main.qso');
+    this.qso = new M.panel('Contact', 'qruqsp_winterfielddaylog_main', 'qso', 'mc', 'medium', 'sectioned', 'qruqsp.winterfielddaylog.main.qso');
     this.qso.data = null;
     this.qso.qso_id = 0;
     this.qso.nplist = [];
@@ -658,7 +658,7 @@ function qruqsp_winterfielddaylog_main() {
             'frequency':{'label':'Frequency', 'type':'text'},
             'band':{'label':'Band', 'type':'select', 'options':this.bandOptions},
             'mode':{'label':'Mode', 'type':'toggle', 'toggles':{'CW':'CW', 'PH':'PH', 'DIG':'DIG'}},
-            'flags1':{'label':'GOTA', 'type':'flagtoggle', 'default':'off', 'bit':0x01, 'field':'flags', 'visible':'no'},
+//            'flags1':{'label':'GOTA', 'type':'flagtoggle', 'default':'off', 'bit':0x01, 'field':'flags', 'visible':'no'},
             'operator':{'label':'Operator', 'type':'text', 'visible':'no'},
             }},
         '_notes':{'label':'Notes', 'visible':'no', 'fields':{
@@ -758,7 +758,7 @@ function qruqsp_winterfielddaylog_main() {
     //
     // The settings panel
     //
-    this.settings = new M.panel('Settings', 'qruqsp_winterfielddaylog_main', 'settings', 'mc', 'medium', 'sectioned', 'qruqsp.fielddaylog.main.settings');
+    this.settings = new M.panel('Settings', 'qruqsp_winterfielddaylog_main', 'settings', 'mc', 'medium', 'sectioned', 'qruqsp.winterfielddaylog.main.settings');
     this.settings.data = null;
     this.settings.settings_id = 0;
     this.settings.nplist = [];
