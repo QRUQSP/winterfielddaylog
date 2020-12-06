@@ -51,8 +51,8 @@ function qruqsp_winterfielddaylog_qsoUpdate(&$ciniki) {
     }
     if( isset($args['class']) ) {
         $args['class'] = trim(strtoupper($args['class']));
-        if( !preg_match("/^[0-9]+[A-F]$/", $args['class']) ) {
-            return array('stat'=>'warn', 'err'=>array('code'=>'qruqsp.winterfielddaylog.25', 'msg'=>'Invalid class, must be in the format NumberLetter, EG: 1D, 4E'));
+        if( !preg_match("/^[0-9]+[IOH]$/", $args['class']) ) {
+            return array('stat'=>'warn', 'err'=>array('code'=>'qruqsp.winterfielddaylog.25', 'msg'=>'Invalid class, must be in the format NumberLetter, EG: 1I, 4H'));
         }
     }
     if( isset($args['section']) ) {
