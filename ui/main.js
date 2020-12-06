@@ -46,11 +46,11 @@ function qruqsp_winterfielddaylog_main() {
                 'onchange':'M.qruqsp_winterfielddaylog_main.menu.updateDups',
                 'toggles':{'CW':'CW', 'PH':'PH', 'DIG':'DIG'},
                 },
-            'flags1':{'label':'GOTA', 'type':'flagtoggle', 'default':'off', 'bit':0x01, 'field':'flags',
-                'visible':'no',
+//            'flags1':{'label':'GOTA', 'type':'flagtoggle', 'default':'off', 'bit':0x01, 'field':'flags',
+//                'visible':'no',
 //                'onchange':'M.qruqsp_winterfielddaylog_main.menu.updateDups',
 //                'toggles':{'CW':'CW', 'PH':'PH', 'DIG':'DIG'},
-                },
+//                },
             'operator':{'label':'Operator', 'type':'text', 'visible':'no'},
             }},
         '_notes':{'label':'Notes', 'visible':'hidden', 'aside':'yes', 'fields':{
@@ -146,7 +146,7 @@ function qruqsp_winterfielddaylog_main() {
                 ? 'yes' : 'hidden'; },
             'html':'Map by <a href="https://www.mapability.com/ei8ic/maps/sections.php" target="_blank">EI8IC</a>. License: <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>.',
             },
-        'mode_band_stats':{'label':'Statistics', 'type':'simplegrid', 'num_cols':14,
+        'mode_band_stats':{'label':'Statistics', 'type':'simplegrid', 'num_cols':13,
             'visible':function() { return M.size != 'compact' 
                 && (M.qruqsp_winterfielddaylog_main.menu.sections._tabs.selected == 'stats' 
                     || M.qruqsp_winterfielddaylog_main.menu.uisize == 'large') 
@@ -154,12 +154,12 @@ function qruqsp_winterfielddaylog_main() {
             'cellClasses':['bold', ''],
             'sortable':'yes',
             'sortTypes':['text','number','number','number','number','number','number','number','number','number','number','number','number','number','number'],
-            'headerValues':['Mode','160','80','40','20','15','10','6','2','220','70','SAT','Other','Totals'],
+            'headerValues':['Mode','160','80','40','20','15','10','6','2','220','70','Other','Totals'],
             'headerClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
             'cellClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
             'footerClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
             },
-        'gota_stats':{'label':'GOTA', 'type':'simplegrid', 'num_cols':5,
+/*        'gota_stats':{'label':'GOTA', 'type':'simplegrid', 'num_cols':5,
             'visible':function() { return M.size != 'compact' 
                 && (M.qruqsp_winterfielddaylog_main.menu.sections._tabs.selected == 'stats' 
                     || M.qruqsp_winterfielddaylog_main.menu.uisize == 'large') 
@@ -173,8 +173,8 @@ function qruqsp_winterfielddaylog_main() {
             'headerClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
             'cellClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
             'footerClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
-            },
-        'section_band_stats':{'label':'', 'type':'simplegrid', 'num_cols':14,
+            }, */
+        'section_band_stats':{'label':'', 'type':'simplegrid', 'num_cols':13,
             'visible':function() { return M.size != 'compact' 
                 && (M.qruqsp_winterfielddaylog_main.menu.sections._tabs.selected == 'stats' 
                     || M.qruqsp_winterfielddaylog_main.menu.uisize == 'large') 
@@ -182,7 +182,7 @@ function qruqsp_winterfielddaylog_main() {
             'cellClasses':['bold', ''],
             'sortable':'yes',
             'sortTypes':['text','number','number','number','number','number','number','number','number','number','number','number','number','number','number'],
-            'headerValues':['Section','160','80','40','20','15','10','6','2','220','70','SAT','Other','Totals'],
+            'headerValues':['Section','160','80','40','20','15','10','6','2','220','70','Other','Totals'],
             'headerClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
             'cellClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
             'footerClasses':['aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter', 'aligncenter'],
@@ -322,10 +322,10 @@ function qruqsp_winterfielddaylog_main() {
                 case 8: return (d.label=='Totals'?'<b>'+d[2].num_qsos+'</b>':d[2].num_qsos);
                 case 9: return (d.label=='Totals'?'<b>'+d[220].num_qsos+'</b>':d[220].num_qsos);
                 case 10: return (d.label=='Totals'?'<b>'+d[440].num_qsos+'</b>':d[440].num_qsos);
-                case 11: return (d.label=='Totals'?'<b>'+d.satellite.num_qsos+'</b>':d.satellite.num_qsos);
+//                case 11: return (d.label=='Totals'?'<b>'+d.satellite.num_qsos+'</b>':d.satellite.num_qsos);
 //                case 12: return (d.label=='Totals'?'<b>'+d.gota.num_qsos+'</b>':d.gota.num_qsos);
-                case 12: return (d.label=='Totals'?'<b>'+d.other.num_qsos+'</b>':d.other.num_qsos);
-                case 13: return '<b>' + d.totals.num_qsos + '</b>';
+                case 11: return (d.label=='Totals'?'<b>'+d.other.num_qsos+'</b>':d.other.num_qsos);
+                case 12: return '<b>' + d.totals.num_qsos + '</b>';
             }
         }
     }
@@ -386,11 +386,11 @@ function qruqsp_winterfielddaylog_main() {
                 case 8: return (d[2].num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
                 case 9: return (d[220].num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
                 case 10: return (d[440].num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
-                case 11: return (d.satellite.num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
+//                case 11: return (d.satellite.num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
 //                case 12: return (d.gota.num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
-                case 12: return (d.other.num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
+                case 11: return (d.other.num_qsos > 0 ? 'statusgreen ' : '') + 'aligncenter';
                 case 0: 
-                case 13: return 'statusgrey aligncenter bold';
+                case 12: return 'statusgrey aligncenter bold';
             }
         }
         if( this.sections[s].cellClasses != null ) {
@@ -421,10 +421,10 @@ function qruqsp_winterfielddaylog_main() {
                 case 8: return this.data.totals[s][2].num_qsos;
                 case 9: return this.data.totals[s][220].num_qsos;
                 case 10: return this.data.totals[s][440].num_qsos;
-                case 11: return this.data.totals[s].satellite.num_qsos;
+//                case 11: return this.data.totals[s].satellite.num_qsos;
 //                case 12: return this.data.totals[s].gota.num_qsos;
-                case 12: return this.data.totals[s].other.num_qsos;
-                case 13: return this.data.totals[s].totals.num_qsos;
+                case 11: return this.data.totals[s].other.num_qsos;
+                case 12: return this.data.totals[s].totals.num_qsos;
             }
         }
         return null;
@@ -455,10 +455,10 @@ function qruqsp_winterfielddaylog_main() {
             || this.data.settings['class'] == null || this.data.settings['class'] == ''
             || this.data.settings['section'] == null || this.data.settings['section'] == ''
             || this.data.settings['category-operator'] == null || this.data.settings['category-operator'] == ''
-            || this.data.settings['category-assisted'] == null || this.data.settings['category-assisted'] == ''
+//            || this.data.settings['category-assisted'] == null || this.data.settings['category-assisted'] == ''
             || this.data.settings['category-power'] == null || this.data.settings['category-power'] == ''
-            || this.data.settings['category-station'] == null || this.data.settings['category-station'] == ''
-            || this.data.settings['category-transmitter'] == null || this.data.settings['category-transmitter'] == ''
+//            || this.data.settings['category-station'] == null || this.data.settings['category-station'] == ''
+//            || this.data.settings['category-transmitter'] == null || this.data.settings['category-transmitter'] == ''
             ) {
             M.alert('Before you can download Cabrillo file you must click on Settings in the top right and configure your station.');
         } else {
@@ -480,15 +480,15 @@ function qruqsp_winterfielddaylog_main() {
                 p.sections._notes.visible = 'yes';
             }
             var e = M.gE(p.panelUID + '_operator');
-            var flags1 = M.gE(p.panelUID + '_flags1');
+//            var flags1 = M.gE(p.panelUID + '_flags1');
             p.sections.recent.num_cols = 6;
             if( e != null && e.parentNode != null && e.parentNode.parentNode != null ) {
                 if( rsp.settings != null && rsp.settings['category-operator'] != null && rsp.settings['category-operator'] == 'MULTI-OP' ) {
                     p.sections.recent.num_cols = 7;
-                    flags1.parentNode.parentNode.style.display = 'table-row';
+//                    flags1.parentNode.parentNode.style.display = 'table-row';
                     e.parentNode.parentNode.style.display = 'table-row';
                 } else {
-                    flags1.parentNode.parentNode.style.display = 'none';
+//                    flags1.parentNode.parentNode.style.display = 'none';
                     e.parentNode.parentNode.style.display = 'none';
                 }
             }
@@ -524,11 +524,11 @@ function qruqsp_winterfielddaylog_main() {
             if( M.size != 'compact' && rsp.settings != null && rsp.settings['ui-notes'] != null && rsp.settings['ui-notes'] == 'yes' ) {
                 p.sections._notes.visible = 'yes';
             }
-            p.sections.qso.fields.flags1.visible = 'no';
+//            p.sections.qso.fields.flags1.visible = 'no';
             p.sections.qso.fields.operator.visible = 'no';
             p.sections.recent.num_cols = 6;
             if( rsp.settings != null && rsp.settings['category-operator'] != null && rsp.settings['category-operator'] == 'MULTI-OP' ) {
-                p.sections.qso.fields.flags1.visible = 'yes';
+//                p.sections.qso.fields.flags1.visible = 'yes';
                 p.sections.qso.fields.operator.visible = 'yes';
                 p.sections.recent.num_cols = 7;
             }
@@ -689,10 +689,10 @@ function qruqsp_winterfielddaylog_main() {
             if( rsp.settings != null && rsp.settings['ui-notes'] != null && rsp.settings['ui-notes'] == 'yes' ) {
                 p.sections._notes.visible = 'yes';
             }
-            p.sections.general.fields.flags1.visible = 'no';
+//            p.sections.general.fields.flags1.visible = 'no';
             p.sections.general.fields.operator.visible = 'no';
             if( rsp.settings != null && rsp.settings['category-operator'] != null && rsp.settings['category-operator'] == 'MULTI-OP' ) {
-                p.sections.general.fields.flags1.visible = 'yes';
+//                p.sections.general.fields.flags1.visible = 'yes';
                 p.sections.general.fields.operator.visible = 'yes';
             }
             p.refresh();
@@ -798,6 +798,14 @@ function qruqsp_winterfielddaylog_main() {
             'state':{'label':'State/Province', 'type':'text'},
             'postal':{'label':'ZIP/Postal Code', 'type':'text'},
             'country':{'label':'Country', 'type':'text'},
+            }},
+        '_soapbox':{'label':'Cabrillo Soapbox', 'fields':{
+            'soapbox-non-commercial-power':{'label':'Non Commercial Power', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
+            'soapbox-outdoors':{'label':'Outdoors', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
+            'soapbox-away-from-home':{'label':'Away From Home', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
+            'soapbox-satellite-qso':{'label':'Satellite QSO', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
+            'soapbox-satellite-qso-with':{'label':'Satellite QSO With', 'type':'text', 'size':'small'},
+            'soapbox-freeform':{'label':'Other Info', 'type':'text'},
             }},
         '_buttons':{'label':'', 'buttons':{
             'save':{'label':'Save', 'fn':'M.qruqsp_winterfielddaylog_main.settings.save();'},

@@ -79,6 +79,12 @@ function qruqsp_winterfielddaylog_settingsUpdate(&$ciniki) {
         'state',
         'postal',
         'country',
+        'soapbox-non-commercial-power',
+        'soapbox-outdoors',
+        'soapbox-away-from-home',
+        'soapbox-satellite-qso',
+        'soapbox-satellite-qso-with',
+        'soapbox-freeform',
         );
     //
     // Check each valid setting and see if a new value was passed in the arguments for it.

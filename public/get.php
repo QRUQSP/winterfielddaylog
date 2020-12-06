@@ -121,7 +121,7 @@ function qruqsp_winterfielddaylog_get($ciniki) {
             '2' => array('label' => '2 M', 'num_qsos' => 0),
             '220' => array('label' => '1.25 M', 'num_qsos' => 0),
             '440' => array('label' => '70 Cm', 'num_qsos' => 0),
-            'satellite' => array('label' => 'SAT', 'num_qsos' => 0),
+//            'satellite' => array('label' => 'SAT', 'num_qsos' => 0),
 //            'gota' => array('label' => 'GOTA', 'num_qsos' => 0),
             'other' => array('label' => 'OTHER', 'num_qsos' => 0),
             'totals' => array('label' => 'Totals', 'num_qsos' => 0),
@@ -142,7 +142,7 @@ function qruqsp_winterfielddaylog_get($ciniki) {
             '2' => array('label' => '2 M', 'num_qsos' => 0),
             '220' => array('label' => '1.25 M', 'num_qsos' => 0),
             '440' => array('label' => '70 Cm', 'num_qsos' => 0),
-            'satellite' => array('label' => 'SAT', 'num_qsos' => 0),
+//            'satellite' => array('label' => 'SAT', 'num_qsos' => 0),
 //            'gota' => array('label' => 'GOTA', 'num_qsos' => 0),
             'other' => array('label' => 'OTHER', 'num_qsos' => 0),
             'totals' => array('label' => 'Totals', 'num_qsos' => 0),
@@ -160,7 +160,7 @@ function qruqsp_winterfielddaylog_get($ciniki) {
         '2' => array('label' => '2 M', 'num_qsos' => 0),
         '220' => array('label' => '1.25 M', 'num_qsos' => 0),
         '440' => array('label' => '70 Cm', 'num_qsos' => 0),
-        'satellite' => array('label' => 'SAT', 'num_qsos' => 0),
+//        'satellite' => array('label' => 'SAT', 'num_qsos' => 0),
 //        'gota' => array('label' => 'GOTA', 'num_qsos' => 0),
         'other' => array('label' => 'OTHER', 'num_qsos' => 0),
         'totals' => array('label' => 'Totals', 'num_qsos' => 0),
@@ -186,7 +186,23 @@ function qruqsp_winterfielddaylog_get($ciniki) {
     //
     // Get stats
     //
+    $multipliers = array();
+    $qso_index = array();
     foreach($qsos as $qso) {
+        // Dup Check
+        $qso_idx = $qso['callsign'] . '-' . $qso['band'] . '-' . $qso['mode'];
+        if( in_array($qso_idx, $qso_index) ) {
+            // Dup, skip
+            continue;
+        } else {
+            $qso_index[] = $qso_idx;
+        }
+        // Multipliers
+        $multiplier = $qso['band'] . '-' . $qso['mode'];
+        if( !in_array($multiplier, $multipliers) ) {
+            $multipliers[] = $multiplier;
+        }
+
         if( $rsp['band'] == '' ) {
             $rsp['band'] = $qso['band'];
             $rsp['mode'] = $qso['mode'];
@@ -260,12 +276,47 @@ function qruqsp_winterfielddaylog_get($ciniki) {
     //
     // Calculate score
     //
+    // Band/Mode multipliers
     $qso_points = ($modes['CW']*2) + ($modes['DIG']*2) + $modes['PH'];
+    $score = $qso_points;
+    if( count($multipliers) > 1 ) {
+        $score = $score * count($multipliers);
+    }
+
+    //
+    // Power multipliers
+    //
+    $power_multiplier = 1;
+    if( isset($settings['category-power']) && $settings['category-power'] == 'QRP' ) {
+        $power_multiplier = 4;
+    } elseif( isset($settings['category-power']) && $settings['category-power'] == 'LOW' ) {
+        $power_multiplier = 2;
+    }
+    $score *= $power_multiplier;
+
+    $bonus = 0;
+    if( isset($settings['soapbox-non-commercial-power']) && $settings['soapbox-non-commercial-power'] == 'yes' ) {
+        $bonus += 1500;
+    }
+    if( isset($settings['soapbox-outdoors']) && $settings['soapbox-outdoors'] == 'yes' ) {
+        $bonus += 1500;
+    }
+    if( isset($settings['soapbox-away-from-home']) && $settings['soapbox-away-from-home'] == 'yes' ) {
+        $bonus += 1500;
+    }
+    if( isset($settings['soapbox-satellite-qso']) && $settings['soapbox-satellite-qso'] == 'yes' ) {
+        $bonus += 1500;
+    }
+    $score += $bonus;
     $rsp['scores'] = array(
         array('label' => 'Phone Contacts', 'value' => $modes['PH']),
         array('label' => 'CW Contacts', 'value' => $modes['CW']),
         array('label' => 'Digital Contacts', 'value' => $modes['DIG']),
         array('label' => 'Contact Points', 'value' => $qso_points),
+        array('label' => 'Band/Mode Multipliers', 'value' => count($multipliers) > 1 ? count($multipliers) : 1),
+        array('label' => 'Power Multiplier', 'value' => $power_multiplier),
+        array('label' => 'Bonus', 'value' => $bonus),
+        array('label' => 'Total Score', 'value' => $score),
         );
 
     $rsp['mydetails'] = array(

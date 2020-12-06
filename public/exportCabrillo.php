@@ -90,12 +90,25 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
     $modes = array();
     $operators = array();
     $qso_points = 0;
+    $multipliers = array();
+    $qso_index = array(); // For dup checking
     foreach($qsos as $qso) {
         if( !in_array($qso['band'], $bands) ) {
             $bands[] = $qso['band'];
         }
         if( !in_array($qso['mode'], $modes) ) {
             $modes[] = $qso['mode'];
+        }
+        $multiplier = $qso['band'] . '-' . $qso['mode'];
+        if( !in_array($multiplier, $multipliers) ) {
+            $multipliers[] = $multiplier;
+        }
+        $qso_idx = $qso['callsign'] . '-' . $qso['band'] . '-' . $qso['mode'];
+        if( in_array($qso_idx, $qso_index) ) {
+            // Dup, skip
+            continue;
+        } else {
+            $qso_index[] = $qso_idx;
         }
         if( $qso['mode'] == 'CW' || $qso['mode'] == 'DIG' ) {
             $qso_points += 2;
@@ -148,19 +161,62 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
     $cabrillo .= "LOCATION: " . (isset($settings['location']) ? $settings['location'] : '') . "\r\n";
     $cabrillo .= "ARRL-SECTION: " . (isset($settings['section']) ? $settings['section'] : '') . "\r\n";
     $cabrillo .= "CATEGORY: " . (isset($settings['class']) ? $settings['class'] : '') . "\r\n";
-    if( isset($settings['category-power']) && $settings['category-power'] == 'QRP-BATTERY' ) {
+
+    
+    $score = $qso_points;
+
+    //
+    // Band/Mode multipliers
+    //
+    error_log($score);
+    if( count($multipliers) > 1 ) { 
+        error_log(count($multipliers));
+        $score *= count($multipliers);
+    }
+
+    //
+    // Power level multiplier
+    //
+    if( isset($settings['category-power']) && $settings['category-power'] == 'QRP' ) {
         $cabrillo .= "CATEGORY-POWER: QRP\r\n";
-        $score = $qso_points * 5;
-    } elseif( isset($settings['category-power']) && $settings['category-power'] == 'QRP' ) {
-        $cabrillo .= "CATEGORY-POWER: QRP\r\n";
-        $score = $qso_points * 2;
+        $score = $score * 4;
     } elseif( isset($settings['category-power']) && $settings['category-power'] == 'LOW' ) {
         $cabrillo .= "CATEGORY-POWER: LOW\r\n";
-        $score = $qso_points * 2;
+        $score = $score * 2;
     } else {
         $cabrillo .= "CATEGORY-POWER: " . (isset($settings['category-power']) ? $settings['category-power'] : '') . "\r\n";
-        $score = $qso_points;
+        $score = $score;
     }
+
+    // Soapbox
+    $bonus = 0;
+    if( isset($settings['soapbox-non-commercial-power']) && $settings['soapbox-non-commercial-power'] == 'yes' ) {
+        $cabrillo .= "SOAPBOX: 1,500 points for not using commercial power\r\n";
+        $bonus += 1500;
+    }
+    if( isset($settings['soapbox-outdoors']) && $settings['soapbox-outdoors'] == 'yes' ) {
+        $cabrillo .= "SOAPBOX: 1,500 points for setting up outdoors\r\n";
+        $bonus += 1500;
+    }
+    if( isset($settings['soapbox-away-from-home']) && $settings['soapbox-away-from-home'] == 'yes' ) {
+        $cabrillo .= "SOAPBOX: 1,500 points for setting up away from home\r\n";
+        $bonus += 1500;
+    }
+    if( isset($settings['soapbox-satellite-qso']) && $settings['soapbox-satellite-qso'] == 'yes' ) {
+        $cabrillo .= "SOAPBOX: 1,500 points for Satellite QSO";
+        $bonus += 1500;
+        if( isset($settings['soapbox-satellite-qso-with']) && $settings['soapbox-satellite-qso-with'] != '' ) {
+            $cabrillo .= " (w/" . $settings['soapbox-satellite-qso-with'] . ")";
+        }
+        $cabrillo .= "\r\n";
+    }
+    if( $bonus > 0 ) {
+        $cabrillo .= "SOAPBOX: BONUS Total " . $bonus . "\r\n";
+    }
+    if( isset($settings['soapbox-freeform']) && $settings['soapbox-freeform'] != '' ) {
+        $cabrillo .= "SOAPBOX: " . $settings['soapbox-freeform'] . "\r\n";
+    }
+    $score += $bonus;
 
     $cabrillo .= "CALLSIGN: " . (isset($settings['callsign']) ? $settings['callsign'] : '') . "\r\n";
     $cabrillo .= "CATEGORY-OPERATOR: " . (isset($settings['category-operator']) ? $settings['category-operator'] : '') . "\r\n";
