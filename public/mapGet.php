@@ -97,7 +97,7 @@ function qruqsp_winterfielddaylog_mapGet(&$ciniki) {
     if( !is_dir($rc['cache_dir']) ) {
         mkdir($rc['cache_dir'], 0755, true);
     }
-    $cache_file = $rc['cache_dir'] . '/fielddaymap.jpg';
+    $cache_file = $rc['cache_dir'] . '/winterfielddaymap.jpg';
     
 
     if( is_array($sections) && implode(',', $sections) == $cache_map_sections && file_exists($cache_file)) {

@@ -92,8 +92,8 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
         if( !is_dir($ciniki['tenant']['web_cache_dir']) ) {
             mkdir($ciniki['tenant']['web_cache_dir'], 0755, true);
         }
-        $cache_file = $rc['cache_dir'] . '/fielddaymap.jpg';
-        $web_cache_file = $ciniki['tenant']['web_cache_dir'] . '/fielddaymap.jpg';
+        $cache_file = $rc['cache_dir'] . '/winterfielddaymap.jpg';
+        $web_cache_file = $ciniki['tenant']['web_cache_dir'] . '/winterfielddaymap.jpg';
         if( is_array($sections) && implode(',', $sections) == $cache_map_sections && file_exists($cache_file)) {
             $map = new Imagick($cache_file);
         } else {
@@ -141,7 +141,7 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
         // Add the image to the page blocks
         //
         $block_content = "<div id='image-wrap' class='image-wrap'>";
-        $block_content .= "<div class='image'><img src='" . $ciniki['tenant']['web_cache_url'] . '/fielddaymap.jpg' . "'/></div>";
+        $block_content .= "<div class='image'><img src='" . $ciniki['tenant']['web_cache_url'] . '/winterfielddaymap.jpg' . "'/></div>";
         $block_content .= "</div>";
         $page['blocks'][] = array('type'=>'content', 'html'=>$block_content);
     } 

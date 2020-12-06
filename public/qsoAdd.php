@@ -169,7 +169,7 @@ function qruqsp_winterfielddaylog_qsoAdd(&$ciniki) {
         if( $rc['stat'] != 'ok' ) {
             return array('stat'=>'fail', 'err'=>array('code'=>'qruqsp.winterfielddaylog.12', 'msg'=>'Unable to load cached map', 'err'=>$rc['err']));
         }
-        $cache_file = $rc['cache_dir'] . '/fielddaymap.jpg';
+        $cache_file = $rc['cache_dir'] . '/winterfielddaymap.jpg';
 
         $map = new Imagick($cache_file);
         $map->setImageCompressionQuality(60);
