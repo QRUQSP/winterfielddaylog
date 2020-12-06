@@ -99,7 +99,6 @@ function qruqsp_winterfielddaylog_exportExcel($ciniki) {
         'mode' => 'Mode',
         );
     if( isset($settings['category-operator']) && $settings['category-operator'] == 'MULTI-OP' ) {
-        $columns['gota'] = 'GOTA';
         $columns['operator'] = 'Operator';
     }
     if( isset($settings['ui-notes']) && $settings['ui-notes'] == 'yes' ) {
