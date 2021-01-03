@@ -68,7 +68,7 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
         . "qruqsp_winterfielddaylog_qsos.operator "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $args['tnid']) . "' "
-        . "AND YEAR(qso_dt) = 2020 "
+        . "AND YEAR(qso_dt) = 2021 "
         . "ORDER BY qso_dt ASC "
         . "";
     ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbHashQueryArrayTree');
@@ -156,7 +156,7 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
     $cabrillo = '';
     $cabrillo .= "START-OF-LOG: 3.0\r\n";
     $cabrillo .= "CONTEST: WFD\r\n";
-    $cabrillo .= "Created-By: QRUQSP.org WinterFieldDayLogger2020\r\n";
+    $cabrillo .= "Created-By: QRUQSP.org WinterFieldDayLogger2021\r\n";
     $cabrillo .= "CLUB: " . (isset($settings['club']) ? $settings['club'] : '') . "\r\n";
     $cabrillo .= "LOCATION: " . (isset($settings['location']) ? $settings['location'] : '') . "\r\n";
     $cabrillo .= "ARRL-SECTION: " . (isset($settings['section']) ? $settings['section'] : '') . "\r\n";
@@ -251,7 +251,7 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
 
     header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT', true, 200);
     header("Content-type: text/plain");
-    header('Content-Disposition: attachment; filename="fieldday2020.log"');
+    header('Content-Disposition: attachment; filename="winterfieldday2021.log"');
 
     print $cabrillo;
     
