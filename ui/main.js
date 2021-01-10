@@ -798,6 +798,7 @@ function qruqsp_winterfielddaylog_main() {
             'state':{'label':'State/Province', 'type':'text'},
             'postal':{'label':'ZIP/Postal Code', 'type':'text'},
             'country':{'label':'Country', 'type':'text'},
+            'email':{'label':'Email', 'type':'text'},
             }},
         '_soapbox':{'label':'Cabrillo Soapbox', 'fields':{
             'soapbox-non-commercial-power':{'label':'Non Commercial Power', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},

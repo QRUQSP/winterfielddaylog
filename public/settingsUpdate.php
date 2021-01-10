@@ -79,6 +79,7 @@ function qruqsp_winterfielddaylog_settingsUpdate(&$ciniki) {
         'state',
         'postal',
         'country',
+        'email',
         'soapbox-non-commercial-power',
         'soapbox-outdoors',
         'soapbox-away-from-home',
