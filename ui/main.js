@@ -20,7 +20,7 @@ function qruqsp_winterfielddaylog_main() {
     //
     // The panel to list the qso
     //
-    this.menu = new M.panel('Field Day Logger', 'qruqsp_winterfielddaylog_main', 'menu', 'mc', 'xlarge narrowaside', 'sectioned', 'qruqsp.winterfielddaylog.main.menu');
+    this.menu = new M.panel('Winter Field Day Logger', 'qruqsp_winterfielddaylog_main', 'menu', 'mc', 'xlarge narrowaside', 'sectioned', 'qruqsp.winterfielddaylog.main.menu');
     this.menu.data = {};
     this.menu.nplist = [];
     this.menu.uisize = 'normal';
