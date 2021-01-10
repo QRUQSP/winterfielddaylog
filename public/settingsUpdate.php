@@ -66,6 +66,7 @@ function qruqsp_winterfielddaylog_settingsUpdate(&$ciniki) {
         'class',
         'section',
         'location',
+        'club',
         'ui-notes',
         'allow-dupes',
         'category-operator',
