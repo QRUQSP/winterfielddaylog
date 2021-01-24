@@ -35,7 +35,7 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
         if( isset($settings['page-winterfielddaylog-name']) && $settings['page-winterfielddaylog-name'] != '' ) {
             $page['breadcrumbs'][] = array('name'=>$settings['page-winterfielddaylog-name'], 'url'=>$args['base_url']);
         } else {
-            $page['breadcrumbs'][] = array('name'=>'Field Day', 'url'=>$args['base_url']);
+            $page['breadcrumbs'][] = array('name'=>'Winter Field Day', 'url'=>$args['base_url']);
         }
     }
 
