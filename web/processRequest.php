@@ -25,6 +25,9 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
         return array('stat'=>'404', 'err'=>array('code'=>'qruqsp.winterfielddaylog.5', 'msg'=>"I'm sorry, the page you requested does not exist."));
     }
 
+    if( $args['page_title'] == '' ) {
+        $args['page_title'] = 'Winter Field Day';
+    }
     $page = array(
         'title'=>$args['page_title'],
         'breadcrumbs'=>$args['breadcrumbs'],
@@ -140,9 +143,9 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
         //
         // Add the image to the page blocks
         //
-        $block_content = "<div id='image-wrap' class='image-wrap'>";
+        $block_content = "<div class='block-image'><div id='image-wrap' class='image-wrap'>";
         $block_content .= "<div class='image'><img src='" . $ciniki['tenant']['web_cache_url'] . '/winterfielddaymap.jpg' . "'/></div>";
-        $block_content .= "</div>";
+        $block_content .= "</div></div>";
         $page['blocks'][] = array('type'=>'content', 'html'=>$block_content);
     } 
    
@@ -180,7 +183,7 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
                 $sections[$s]['num_qsos'] = 1;
             }
         }
-        $block_content = '<div class="table"><table><thead>';
+        $block_content = '<div class="table block-table"><table><thead>';
         $block_content .= '<tr>'
             . '<td class="aligncenter">DX</th>'
             . '<td class="aligncenter">1</th>'
@@ -249,6 +252,7 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
 
         $page['blocks'][] = array('type'=>'table', 
             'header' => 'yes',
+            'class' => 'limit-width',
             'columns' => array( 
                 array('label' => 'Date/Time', 'class' => 'alignleft', 'field' => 'qso_dt_display'),
                 array('label' => 'Call Sign', 'class' => 'alignleft', 'field' => 'callsign'),
