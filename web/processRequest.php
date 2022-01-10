@@ -53,7 +53,7 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
         $strsql = "SELECT DISTINCT section "
             . "FROM qruqsp_winterfielddaylog_qsos "
             . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $tnid) . "' "
-            . "AND YEAR(qso_dt) = 2021 "
+            . "AND YEAR(qso_dt) = 2022 "
             . "ORDER BY section "
             . "";
         ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbQueryList');
@@ -170,7 +170,7 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
         $strsql = "SELECT DISTINCT section "
             . "FROM qruqsp_winterfielddaylog_qsos "
             . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $tnid) . "' "
-            . "AND YEAR(qso_dt) = 2021 "
+            . "AND YEAR(qso_dt) = 2022 "
             . "ORDER BY section "
             . "";
         ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbQueryList');
@@ -236,7 +236,7 @@ function qruqsp_winterfielddaylog_web_processRequest(&$ciniki, $settings, $tnid,
             . "qruqsp_winterfielddaylog_qsos.operator "
             . "FROM qruqsp_winterfielddaylog_qsos "
             . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $tnid) . "' "
-            . "AND YEAR(qso_dt) = 2021 "
+            . "AND YEAR(qso_dt) = 2022 "
             . "ORDER BY qso_dt DESC "
             . "";
         ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbHashQueryArrayTree');

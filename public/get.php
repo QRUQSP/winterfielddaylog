@@ -78,7 +78,7 @@ function qruqsp_winterfielddaylog_get($ciniki) {
         . "qruqsp_winterfielddaylog_qsos.operator "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $args['tnid']) . "' "
-        . "AND YEAR(qso_dt) = 2021 "
+        . "AND YEAR(qso_dt) = 2022 "
         . "ORDER BY qso_dt DESC "
         . "";
     ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbHashQueryArrayTree');
