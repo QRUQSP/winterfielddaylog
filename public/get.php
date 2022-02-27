@@ -296,16 +296,16 @@ function qruqsp_winterfielddaylog_get($ciniki) {
 
     $bonus = 0;
     if( isset($settings['soapbox-non-commercial-power']) && $settings['soapbox-non-commercial-power'] == 'yes' ) {
-        $bonus += 1500;
+        $bonus += 500;
     }
     if( isset($settings['soapbox-outdoors']) && $settings['soapbox-outdoors'] == 'yes' ) {
-        $bonus += 1500;
+        $bonus += 500;
     }
     if( isset($settings['soapbox-away-from-home']) && $settings['soapbox-away-from-home'] == 'yes' ) {
-        $bonus += 1500;
+        $bonus += 500;
     }
     if( isset($settings['soapbox-satellite-qso']) && $settings['soapbox-satellite-qso'] == 'yes' ) {
-        $bonus += 1500;
+        $bonus += 500;
     }
     $score += $bonus;
     $rsp['scores'] = array(
