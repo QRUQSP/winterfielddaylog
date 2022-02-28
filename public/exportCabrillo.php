@@ -189,19 +189,19 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
     // Soapbox
     $bonus = 0;
     if( isset($settings['soapbox-non-commercial-power']) && $settings['soapbox-non-commercial-power'] == 'yes' ) {
-        $cabrillo .= "SOAPBOX: 1,500 points for not using commercial power\r\n";
+        $cabrillo .= "SOAPBOX: 500 points for not using commercial power\r\n";
         $bonus += 500;
     }
     if( isset($settings['soapbox-outdoors']) && $settings['soapbox-outdoors'] == 'yes' ) {
-        $cabrillo .= "SOAPBOX: 1,500 points for setting up outdoors\r\n";
+        $cabrillo .= "SOAPBOX: 500 points for setting up outdoors\r\n";
         $bonus += 500;
     }
     if( isset($settings['soapbox-away-from-home']) && $settings['soapbox-away-from-home'] == 'yes' ) {
-        $cabrillo .= "SOAPBOX: 1,500 points for setting up away from home\r\n";
+        $cabrillo .= "SOAPBOX: 500 points for setting up away from home\r\n";
         $bonus += 500;
     }
     if( isset($settings['soapbox-satellite-qso']) && $settings['soapbox-satellite-qso'] == 'yes' ) {
-        $cabrillo .= "SOAPBOX: 1,500 points for Satellite QSO";
+        $cabrillo .= "SOAPBOX: 500 points for Satellite QSO";
         $bonus += 500;
         if( isset($settings['soapbox-satellite-qso-with']) && $settings['soapbox-satellite-qso-with'] != '' ) {
             $cabrillo .= " (w/" . $settings['soapbox-satellite-qso-with'] . ")";
