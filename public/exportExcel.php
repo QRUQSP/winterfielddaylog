@@ -68,7 +68,7 @@ function qruqsp_winterfielddaylog_exportExcel($ciniki) {
         . "qruqsp_winterfielddaylog_qsos.notes "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $args['tnid']) . "' "
-        . "AND YEAR(qso_dt) = 2022 "
+        . "AND YEAR(qso_dt) = 2023 "
         . "ORDER BY qso_dt ASC "
         . "";
     ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbHashQueryArrayTree');

@@ -29,7 +29,7 @@ function qruqsp_winterfielddaylog_checkDupe(&$ciniki, $tnid, $args) {
         . "qruqsp_winterfielddaylog_qsos.notes "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $tnid) . "' "
-        . "AND YEAR(qruqsp_winterfielddaylog_qsos.qso_dt) = 2022 "
+        . "AND YEAR(qruqsp_winterfielddaylog_qsos.qso_dt) = 2023 "
         . "AND qruqsp_winterfielddaylog_qsos.callsign = '" . ciniki_core_dbQuote($ciniki, $args['callsign']) . "' "
         . "AND qruqsp_winterfielddaylog_qsos.band = '" . ciniki_core_dbQuote($ciniki, $args['band']) . "' "
         . "AND qruqsp_winterfielddaylog_qsos.mode = '" . ciniki_core_dbQuote($ciniki, $args['mode']) . "' "

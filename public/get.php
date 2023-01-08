@@ -78,7 +78,7 @@ function qruqsp_winterfielddaylog_get($ciniki) {
         . "qruqsp_winterfielddaylog_qsos.operator "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $args['tnid']) . "' "
-        . "AND YEAR(qso_dt) = 2022 "
+        . "AND YEAR(qso_dt) = 2023 "
         . "ORDER BY qso_dt DESC "
         . "";
     ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbHashQueryArrayTree');
@@ -304,8 +304,14 @@ function qruqsp_winterfielddaylog_get($ciniki) {
     if( isset($settings['soapbox-away-from-home']) && $settings['soapbox-away-from-home'] == 'yes' ) {
         $bonus += 500;
     }
+    if( isset($settings['soapbox-setup-antenna']) && $settings['soapbox-setup-antenna'] == 'yes' ) {
+        $bonus += 500;
+    }
     if( isset($settings['soapbox-satellite-qso']) && $settings['soapbox-satellite-qso'] == 'yes' ) {
         $bonus += 500;
+    }
+    if( isset($settings['soapbox-mobile']) && $settings['soapbox-mobile'] == 'yes' ) {
+        $bonus += 250;
     }
     $score += $bonus;
     $rsp['scores'] = array(

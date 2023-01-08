@@ -68,7 +68,7 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
         . "qruqsp_winterfielddaylog_qsos.operator "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $args['tnid']) . "' "
-        . "AND YEAR(qso_dt) = 2022 "
+        . "AND YEAR(qso_dt) = 2023 "
         . "ORDER BY qso_dt ASC "
         . "";
     ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbHashQueryArrayTree');
@@ -135,7 +135,7 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
         $cabrillo_qsos .= sprintf(" %5s", $qso['frequency']);
 
         if( $qso['mode'] == 'DIG' ) {
-            $cabrillo_qsos .= " DI";
+            $cabrillo_qsos .= " DG";
         } else {
             $cabrillo_qsos .= " " . $qso['mode'];
         }
@@ -156,7 +156,7 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
     $cabrillo = '';
     $cabrillo .= "START-OF-LOG: 3.0\r\n";
     $cabrillo .= "CONTEST: WFD\r\n";
-    $cabrillo .= "Created-By: QRUQSP.org WinterFieldDayLogger2022\r\n";
+    $cabrillo .= "Created-By: QRUQSP.org WinterFieldDayLogger2023\r\n";
     $cabrillo .= "CLUB: " . (isset($settings['club']) ? $settings['club'] : '') . "\r\n";
     $cabrillo .= "LOCATION: " . (isset($settings['location']) ? $settings['location'] : '') . "\r\n";
     $cabrillo .= "ARRL-SECTION: " . (isset($settings['section']) ? $settings['section'] : '') . "\r\n";
@@ -200,6 +200,10 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
         $cabrillo .= "SOAPBOX: 500 points for setting up away from home\r\n";
         $bonus += 500;
     }
+    if( isset($settings['soapbox-setup-antenna']) && $settings['soapbox-setup-antenna'] == 'yes' ) {
+        $cabrillo .= "SOAPBOX: 500 points for antenna setup\r\n";
+        $bonus += 500;
+    }
     if( isset($settings['soapbox-satellite-qso']) && $settings['soapbox-satellite-qso'] == 'yes' ) {
         $cabrillo .= "SOAPBOX: 500 points for Satellite QSO";
         $bonus += 500;
@@ -207,6 +211,10 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
             $cabrillo .= " (w/" . $settings['soapbox-satellite-qso-with'] . ")";
         }
         $cabrillo .= "\r\n";
+    }
+    if( isset($settings['soapbox-mobile']) && $settings['soapbox-mobile'] == 'yes' ) {
+        $cabrillo .= "SOAPBOX: 250 points for mobile\r\n";
+        $bonus += 250;
     }
     if( $bonus > 0 ) {
         $cabrillo .= "SOAPBOX: BONUS Total " . $bonus . "\r\n";
@@ -254,7 +262,7 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
 
     header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT', true, 200);
     header("Content-type: text/plain");
-    header('Content-Disposition: attachment; filename="winterfieldday2022.log"');
+    header('Content-Disposition: attachment; filename="winterfieldday2023.log"');
 
     print $cabrillo;
     

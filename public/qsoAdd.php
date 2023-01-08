@@ -44,7 +44,7 @@ function qruqsp_winterfielddaylog_qsoAdd(&$ciniki) {
     }
 
     $args['class'] = trim(strtoupper($args['class']));
-    if( !preg_match("/^[0-9]+[IOH]$/", $args['class']) ) {
+    if( !preg_match("/^[0-9]+[IOHM]$/", $args['class']) ) {
         return array('stat'=>'warn', 'err'=>array('code'=>'qruqsp.winterfielddaylog.23', 'msg'=>'Invalid class, must be in the format NumberLetter, EG: 1I, 4H'));
     }
 
@@ -160,7 +160,7 @@ function qruqsp_winterfielddaylog_qsoAdd(&$ciniki) {
     //
     // Update the map if new section
     //
-    if( $args['section'] != 'DX' && !in_array($args['section'], $cache_map_sections) ) {
+    if( $args['section'] != 'DX' && $args['section'] != 'MX' && !in_array($args['section'], $cache_map_sections) ) {
         //
         // Check cache
         //

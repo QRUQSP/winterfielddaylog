@@ -20,6 +20,7 @@ function qruqsp_winterfielddaylog_sectionsLoad($ciniki) {
             'name' => 'DX', 
             'sections' => array(
                 array('label' => 'DX', 'name' => 'DX', 'bit' => 0),
+                array('label' => 'MX', 'name' => 'MX', 'bit' => 85),
             ),
         ),
         '_1' => array(
