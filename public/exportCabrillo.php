@@ -177,10 +177,10 @@ function qruqsp_winterfielddaylog_exportCabrillo($ciniki) {
     //
     if( isset($settings['category-power']) && $settings['category-power'] == 'QRP' ) {
         $cabrillo .= "CATEGORY-POWER: QRP\r\n";
-        $score = $score * 4;
-    } elseif( isset($settings['category-power']) && $settings['category-power'] == 'LOW' ) {
-        $cabrillo .= "CATEGORY-POWER: LOW\r\n";
         $score = $score * 2;
+//    } elseif( isset($settings['category-power']) && $settings['category-power'] == 'LOW' ) {
+//        $cabrillo .= "CATEGORY-POWER: LOW\r\n";
+//        $score = $score * 2;
     } else {
         $cabrillo .= "CATEGORY-POWER: " . (isset($settings['category-power']) ? $settings['category-power'] : '') . "\r\n";
         $score = $score;

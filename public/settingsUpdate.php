@@ -84,6 +84,7 @@ function qruqsp_winterfielddaylog_settingsUpdate(&$ciniki) {
         'soapbox-non-commercial-power',
         'soapbox-outdoors',
         'soapbox-away-from-home',
+        'soapbox-mobile',
         'soapbox-satellite-qso',
         'soapbox-satellite-qso-with',
         'soapbox-freeform',

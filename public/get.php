@@ -288,9 +288,9 @@ function qruqsp_winterfielddaylog_get($ciniki) {
     //
     $power_multiplier = 1;
     if( isset($settings['category-power']) && $settings['category-power'] == 'QRP' ) {
-        $power_multiplier = 4;
-    } elseif( isset($settings['category-power']) && $settings['category-power'] == 'LOW' ) {
         $power_multiplier = 2;
+//    } elseif( isset($settings['category-power']) && $settings['category-power'] == 'LOW' ) {
+//        $power_multiplier = 2;
     }
     $score *= $power_multiplier;
 

@@ -777,7 +777,7 @@ function qruqsp_winterfielddaylog_main() {
         '_logging':{'label':'Cabrillo Export Details', 'fields':{
             'category-operator':{'label':'Operator', 'type':'toggle', 'default':'SINGLE-OP', 'toggles':{'SINGLE-OP':'Single Operator', 'MULTI-OP':'Multi-Operator'}},
 //            'category-assisted':{'label':'Assisted', 'type':'toggle', 'default':'ASSISTED', 'toggles':{'ASSISTED':'Assisted', 'NON-ASSISTED':'Non-Assisted'}},
-            'category-power':{'label':'Power', 'type':'toggle', 'default':'LOW', 'toggles':{'QRP':'QRP', 'LOW':'Low <= 100w', 'HIGH':'High > 100W'}},
+            'category-power':{'label':'Power', 'type':'toggle', 'default':'LOW', 'toggles':{'QRP':'QRP <= 5w', 'LOW':'Low <= 100w'}},
 /*            'category-station':{'label':'Station', 'type':'toggle', 'default':'FIXED', 'toggles':{'FIXED':'Fixed', 
                 'MOBILE':'Mobile', 
                 'PORTABLE':'Portable', 
@@ -804,6 +804,7 @@ function qruqsp_winterfielddaylog_main() {
             'soapbox-non-commercial-power':{'label':'Non Commercial Power', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
             'soapbox-outdoors':{'label':'Outdoors', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
             'soapbox-away-from-home':{'label':'Away From Home', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
+            'soapbox-mobile':{'label':'Mobile', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
             'soapbox-satellite-qso':{'label':'Satellite QSO', 'type':'toggle', 'default':'no', 'toggles':{'no':'No', 'yes':'Yes'}},
             'soapbox-satellite-qso-with':{'label':'Satellite QSO With', 'type':'text', 'size':'small'},
             'soapbox-freeform':{'label':'Other Info', 'type':'text'},
