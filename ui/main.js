@@ -777,7 +777,7 @@ function qruqsp_winterfielddaylog_main() {
         '_logging':{'label':'Cabrillo Export Details', 'fields':{
             'category-operator':{'label':'Operator', 'type':'toggle', 'default':'SINGLE-OP', 'toggles':{'SINGLE-OP':'Single Operator', 'MULTI-OP':'Multi-Operator'}},
 //            'category-assisted':{'label':'Assisted', 'type':'toggle', 'default':'ASSISTED', 'toggles':{'ASSISTED':'Assisted', 'NON-ASSISTED':'Non-Assisted'}},
-            'category-power':{'label':'Power', 'type':'toggle', 'default':'LOW', 'toggles':{'QRP':'QRP <= 5w CW, <= 10w Phone', 'HIGH':'HIGH <= 100w'}},
+            'category-power':{'label':'Power', 'type':'toggle', 'default':'LOW', 'toggles':{'QRP':'QRP <= 5w CW, <= 10w Phone', 'LOW':'LOW <= 100w'}},
 /*            'category-station':{'label':'Station', 'type':'toggle', 'default':'FIXED', 'toggles':{'FIXED':'Fixed', 
                 'MOBILE':'Mobile', 
                 'PORTABLE':'Portable', 
