@@ -42,7 +42,7 @@ function qruqsp_winterfielddaylog_qsosDelete(&$ciniki) {
     $strsql = "SELECT id, uuid "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE tnid = '" . ciniki_core_dbQuote($ciniki, $args['tnid']) . "' "
-        . "AND YEAR(qso_dt) = 2023 "
+        . "AND YEAR(qso_dt) = 2024 "
         . "";
     $rc = ciniki_core_dbHashQuery($ciniki, $strsql, 'ciniki.winterfielddaylog', 'qso');
     if( $rc['stat'] != 'ok' ) {

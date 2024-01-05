@@ -58,7 +58,7 @@ function qruqsp_winterfielddaylog_mapGet(&$ciniki) {
     $strsql = "SELECT DISTINCT section "
         . "FROM qruqsp_winterfielddaylog_qsos "
         . "WHERE qruqsp_winterfielddaylog_qsos.tnid = '" . ciniki_core_dbQuote($ciniki, $args['tnid']) . "' "
-        . "AND YEAR(qso_dt) = 2023 "
+        . "AND YEAR(qso_dt) = 2024 "
         . "ORDER BY section "
         . "";
     ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'dbQueryList');
