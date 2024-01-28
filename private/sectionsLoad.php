@@ -149,7 +149,7 @@ function qruqsp_winterfielddaylog_sectionsLoad($ciniki) {
             'sections' => array(
                 array('label' => 'AB', 'name' => 'Alberta', 'bit' => 72),
                 array('label' => 'BC', 'name' => 'British Columbia', 'bit' => 73),
-                array('label' => 'GTA', 'name' => 'Greater Toronto Area', 'bit' => 74),
+                array('label' => 'GH', 'name' => 'Ontario Golden Horseshoe', 'bit' => 74),
                 array('label' => 'MAR', 'name' => 'Maritime', 'bit' => 75),
                 array('label' => 'MB', 'name' => 'Manitoba', 'bit' => 76),
                 array('label' => 'NL', 'name' => 'Newfoundland/Labrador', 'bit' => 77),
